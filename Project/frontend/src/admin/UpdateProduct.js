@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
 import {
-  getCategories,
+  getAllCategories,
   getProduct,
   updateProduct
 } from "./helper/adminapicall";
@@ -61,7 +61,7 @@ const UpdateProduct = ({ match }) => {
   };
 
   const preloadCategories = () => {
-    getCategories().then(data => {
+    getAllCategories().then(data => {
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {

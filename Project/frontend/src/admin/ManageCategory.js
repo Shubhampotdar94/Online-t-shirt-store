@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { isAutheticated } from "../auth/helper";
+import { isAuthenticated } from "../auth/helper";
 import Base from "../core/Base";
 import { deleteCategory , getAllCategories } from "./helper/adminapicall";
 
@@ -9,7 +9,7 @@ const ManageCategories = () => {
 
     const [categories , setCategories] = useState([]);
 
-    const {user , token} = isAutheticated();
+    const {user , token} = isAuthenticated();
 
     const preload = ()=>{
         getAllCategories().then(data=>{
@@ -25,6 +25,7 @@ const ManageCategories = () => {
         preload();
     } , [])
 
+    
     const deleteThisCategory = categoryId => {
         deleteCategory(categoryId , user._id , token).then(data =>{
             if(data?.error){
@@ -36,7 +37,7 @@ const ManageCategories = () => {
     }
     
   return (
-    <Base title="Welcome admin" description="Manage Categories here">
+    <Base title="Welcome admin" description="Manage products here">
       <h2 className="mb-4">All Categories:</h2>
       <Link className="btn btn-info" to={`/admin/dashboard`}>
         <span className="">Admin Home</span>

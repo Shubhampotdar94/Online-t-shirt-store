@@ -9,6 +9,8 @@ exports.getUserById = (req, res, next, id) => {
       });
     }
     req.profile = user;
+    // Express will call the load() function before the route handler is called.
+    // The load function loads the user profile belonging to the userId from the database, and adds it to req as a newly created property req.profile
     next();
   });
 };

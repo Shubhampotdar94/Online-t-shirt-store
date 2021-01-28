@@ -4,7 +4,7 @@ import { API } from "../backend";
 import Base from "./Base";
 import Card from "./Card";
 import { loadCart } from "./helper/cartHelper";
-import Paymentb from "./Paymentb";
+import Paymentb from "./PaymentB";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
